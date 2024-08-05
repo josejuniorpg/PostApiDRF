@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # Third-party apps
     'rest_framework',
     "corsheaders",
+    "drf_spectacular",
 
     # Local apps
     'apps.accounts',
@@ -60,6 +61,18 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAdminUser',  # Default permission for all DRF views
     ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+# Settings for DRF Spectacular
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Blog API Project",
+    "DESCRIPTION": "A sample blog to learn about DRF",
+    "VERSION": "1.0.0",
+    # OTHER SETTINGS
 }
 
 ROOT_URLCONF = 'PostsApiDRF.urls'
