@@ -51,6 +51,13 @@ CORS_ALLOWED_ORIGINS = []
 
 CSRF_TRUSTED_ORIGINS = []
 
+# Settings for DRF
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAdminUser',  # Default permission for all DRF views
+    ],
+}
+
 ROOT_URLCONF = 'PostsApiDRF.urls'
 
 TEMPLATES = [
